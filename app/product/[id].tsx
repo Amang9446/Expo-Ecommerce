@@ -7,11 +7,13 @@ import { Heading } from "@/components/ui/heading";
 import { Box } from "@/components/ui/box";
 import { Button, ButtonText } from "@/components/ui/button";
 import products from '@/assets/products.json'
+import { Stack } from "expo-router";
 export default function details() {
     const { id } = useLocalSearchParams<{ id: string }>()
     const product: any = products.find((p) => p.id === Number(id))
     return (
         <Box className="flex-1 items-center p-3">
+            <Stack.Screen options={{ title: `${product.name}` }} />
             <Card className="p-5 rounded-lg max-w-[960px] w-full flex-1">
                 <Image
                     source={product.image}

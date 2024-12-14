@@ -1,9 +1,13 @@
-import { FlatList, Text, useWindowDimensions, View } from "react-native";
+import { FlatList } from "react-native";
 import products from '../assets/products.json';
 import ProductListItem from "../components/ProductListItem";
+import { useBreakpointValue } from '@/components/ui/utils/use-break-point-value';
 export default function HomeScreen() {
-    const { width } = useWindowDimensions();
-    const columnNumber = width > 700 ? 3 : 2
+    const columnNumber = useBreakpointValue({
+        default: 2,
+        sm: 3,
+        xl: 4
+    })
     return (
         <FlatList
             data={products}
