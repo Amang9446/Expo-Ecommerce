@@ -9,7 +9,7 @@ export default function ProductListItem({ product }: any) {
     return (
         <Link href={`/product/${product.id}`} asChild>
             <Pressable className="flex-1">
-                <Card className="p-5 rounded-lg max-w-[360px]">
+                <Card className="p-5 rounded-lg flex-1">
                     <Image
                         source={product.image}
                         className="mb-6 h-[240px] w-full rounded-md aspect-[4/3]"
