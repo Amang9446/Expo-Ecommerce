@@ -1,7 +1,7 @@
 import { Link, Stack } from "expo-router";
 import "@/global.css";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { ShoppingCart } from "lucide-react-native";
+import { ShoppingCart, User } from "lucide-react-native";
 import { Pressable } from "react-native";
 import { useCart } from "@/store/cartStore";
 import { Text, Icon, GluestackUIProvider } from "@/components";
@@ -17,6 +17,13 @@ export default function RootLayout() {
                             <Pressable className="flex-row gap-2">
                                 <Icon as={ShoppingCart} size="xl" />
                                 <Text>{cartItems}</Text>
+                            </Pressable>
+                        </Link>
+                    ),
+                    headerLeft: () => (
+                        <Link href={"/login"} asChild>
+                            <Pressable className="flex-row gap-2">
+                                <Icon as={User} size="xl" />
                             </Pressable>
                         </Link>
                     )

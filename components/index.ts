@@ -10,3 +10,5 @@ export * from "./ui/gluestack-ui-provider";
 export * from "./ui/utils/use-break-point-value";
 export * from "./ui/hstack"
 export * from "./ui/spinner"
+export * from "./ui/form-control"
+export * from "./ui/input"
