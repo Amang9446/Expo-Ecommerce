@@ -1,9 +1,8 @@
 import { useLocalSearchParams } from "expo-router";
-import { Box, Button, ButtonText, Image, Card, VStack, Text, Heading } from "@/components";
+import { Box, Button, ButtonText, Image, Card, VStack, Text, Heading, Spinner } from "@/components";
 import { Stack } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductById } from "@/api/products";
-import { ActivityIndicator } from "react-native";
 import { useCart } from "@/store/cartStore";
 export default function details() {
     const { id } = useLocalSearchParams<{ id: string }>();
@@ -19,7 +18,7 @@ export default function details() {
 
     if (isLoading) {
         return (
-            <ActivityIndicator />
+            <Spinner size="large" />
         )
     }
 

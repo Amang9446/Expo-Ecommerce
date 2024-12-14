@@ -1,9 +1,9 @@
 import React from "react";
-import { ActivityIndicator, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import ProductListItem from "@/components/ProductListItem";
 import { fetchProducts } from "@/api/products";
 import { useQuery } from "@tanstack/react-query";
-import { Text, useBreakpointValue } from "@/components";
+import { Text, useBreakpointValue, Spinner } from "@/components";
 export default function HomeScreen() {
     const { data, isLoading, error } = useQuery({
         queryKey: ['products'],
@@ -18,7 +18,7 @@ export default function HomeScreen() {
 
     if (isLoading) {
         return (
-            <ActivityIndicator />
+            <Spinner size="large" />
         )
     }
 

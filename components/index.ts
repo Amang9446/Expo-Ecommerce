@@ -8,3 +8,5 @@ export * from "./ui/vstack";
 export * from "./ui/icon";
 export * from "./ui/gluestack-ui-provider";
 export * from "./ui/utils/use-break-point-value";
+export * from "./ui/hstack"
+export * from "./ui/spinner"

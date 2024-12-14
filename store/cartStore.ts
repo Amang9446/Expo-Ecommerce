@@ -21,5 +21,8 @@ export const useCart = create((set) => ({
                 }
             }
         })
+    },
+    emptyCart: () => {
+        set({ items: [] })
     }
 }))

@@ -15,6 +15,7 @@
     "@gluestack-ui/image": "^0.1.11",
     "@gluestack-ui/nativewind-utils": "^1.0.26",
     "@gluestack-ui/overlay": "^0.1.16",
+    "@gluestack-ui/spinner": "^0.1.15",
     "@gluestack-ui/toast": "^1.0.8",
     "@tanstack/react-query": "^5.62.7",
     "babel-plugin-module-resolver": "^5.0.2",
