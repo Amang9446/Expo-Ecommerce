@@ -6,11 +6,28 @@ import { VStack } from "@/components/ui/vstack";
 import { Heading } from "@/components/ui/heading";
 import { Box } from "@/components/ui/box";
 import { Button, ButtonText } from "@/components/ui/button";
-import products from '@/assets/products.json'
 import { Stack } from "expo-router";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProductById } from "@/api/products";
+import { ActivityIndicator } from "react-native";
 export default function details() {
-    const { id } = useLocalSearchParams<{ id: string }>()
-    const product: any = products.find((p) => p.id === Number(id))
+    const { id } = useLocalSearchParams<{ id: string }>();
+    const { data: product, isLoading, error } = useQuery({
+        queryKey: ['products', id],
+        queryFn: () => fetchProductById(Number(id))
+    });
+
+    if (isLoading) {
+        return (
+            <ActivityIndicator />
+        )
+    }
+
+    if (error) {
+        return (
+            <Text>Error: Something Went Wrong.</Text>
+        )
+    }
     return (
         <Box className="flex-1 items-center p-3">
             <Stack.Screen options={{ title: `${product.name}` }} />
