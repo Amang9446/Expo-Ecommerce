@@ -1,6 +1,6 @@
 import React from "react";
 import { ActivityIndicator, FlatList } from "react-native";
-import ProductListItem from "../components/ProductListItem";
+import ProductListItem from "@/components/ProductListItem";
 import { useBreakpointValue } from '@/components/ui/utils/use-break-point-value';
 import { fetchProducts } from "@/api/products";
 import { useQuery } from "@tanstack/react-query";

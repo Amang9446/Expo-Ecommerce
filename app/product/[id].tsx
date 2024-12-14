@@ -1,11 +1,5 @@
-import { Text } from "@/components/ui/text";
 import { useLocalSearchParams } from "expo-router";
-import { Card } from "@/components/ui/card";
-import { Image } from "@/components/ui/image";
-import { VStack } from "@/components/ui/vstack";
-import { Heading } from "@/components/ui/heading";
-import { Box } from "@/components/ui/box";
-import { Button, ButtonText } from "@/components/ui/button";
+import { Box, Button, ButtonText, Image, Card, VStack, Text, Heading } from "@/components";
 import { Stack } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductById } from "@/api/products";
