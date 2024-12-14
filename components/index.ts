@@ -4,4 +4,7 @@ export * from "./ui/card";
 export * from "./ui/heading";
 export * from "./ui/image";
 export * from "./ui/text";
-export * from "./ui/vstack"
+export * from "./ui/vstack";
+export * from "./ui/icon";
+export * from "./ui/gluestack-ui-provider";
+export * from "./ui/utils/use-break-point-value";

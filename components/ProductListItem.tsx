@@ -1,7 +1,4 @@
-import { Card } from "./ui/card";
-import { Image } from "./ui/image";
-import { Text } from "./ui/text";
-import { Heading } from "./ui/heading";
+import { Heading, Text, Image, Card } from "@/components";
 import { Link } from "expo-router";
 import { Pressable } from "react-native";
 

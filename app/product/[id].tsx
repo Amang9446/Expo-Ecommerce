@@ -4,12 +4,18 @@ import { Stack } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductById } from "@/api/products";
 import { ActivityIndicator } from "react-native";
+import { useCart } from "@/store/cartStore";
 export default function details() {
     const { id } = useLocalSearchParams<{ id: string }>();
     const { data: product, isLoading, error } = useQuery({
         queryKey: ['products', id],
         queryFn: () => fetchProductById(Number(id))
     });
+
+    const addProduct = useCart((state: any) => state.addProduct)
+    const handleAddToCart = () => {
+        addProduct(product)
+    }
 
     if (isLoading) {
         return (
@@ -44,7 +50,7 @@ export default function details() {
                     </Text>
                 </VStack>
                 <Box className="flex-col sm:flex-row">
-                    <Button className="px-4 py-2 mr-0 mb-3 sm:mr-3 sm:mb-0 sm:flex-1 bg-slate-800">
+                    <Button onPress={handleAddToCart} className="px-4 py-2 mr-0 mb-3 sm:mr-3 sm:mb-0 sm:flex-1 bg-slate-800">
                         <ButtonText size="sm">Add to cart</ButtonText>
                     </Button>
                     <Button
