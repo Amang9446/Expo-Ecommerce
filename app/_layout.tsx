@@ -6,7 +6,7 @@ import { Pressable } from "react-native";
 import { useCart } from "@/store/cartStore";
 import { Text, Icon, GluestackUIProvider } from "@/components";
 import { useAuth } from "@/store/authStore";
-const queryClient = new QueryClient;
+const queryClient = new QueryClient();
 export default function RootLayout() {
     const cartItems = useCart(state => state.items.length)
     const isLoggedIn = useAuth(state => !!state.token)
