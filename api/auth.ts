@@ -1,5 +1,4 @@
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
-console.log(API_URL)
 export async function login(email: string, password: string) {
     const result = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',

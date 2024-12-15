@@ -8,9 +8,9 @@ export default function loginComponent() {
     const [showPassword, setShowPassword] = React.useState(false);
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const saveUser = useAuth((u) => u.setUser);
-    const saveToken = useAuth((t) => t.setToken);
-    const isLoggedIn = useAuth((t) => !!t.token)
+    const saveUser = useAuth((state) => state.setUser);
+    const saveToken = useAuth((state) => state.setToken);
+    const isLoggedIn = useAuth((state) => !!state.token)
 
     const loginMutation = useMutation({
         mutationFn: () => login(email, password),

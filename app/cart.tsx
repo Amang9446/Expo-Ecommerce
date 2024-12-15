@@ -2,13 +2,28 @@ import { useCart } from "@/store/cartStore";
 import { FlatList } from "react-native";
 import { Text, VStack, HStack, Button, ButtonText } from "@/components"
 import { Redirect } from "expo-router";
+import { useMutation } from "@tanstack/react-query";
+import { createOrder } from "@/api/order";
 
 export default function Cart() {
     const cartItems = useCart(state => state.items)
     const emptyCart = useCart(state => state.emptyCart)
+    const createOrderMutation = useMutation({
+        mutationFn: () => createOrder(cartItems.map((item) => ({
+            productId: item.product.id,
+            quantity: item.quantity,
+            price: item.product.price
+        }))),
+        onSuccess: (data) => {
+            console.log(data)
+            emptyCart()
+        },
+        onError: (error) => {
+            console.log(error)
+        }
+    })
     const handleCheckout = async () => {
-        // have to add api
-        emptyCart()
+        createOrderMutation.mutate()
     }
 
     if (cartItems.length === 0) {
