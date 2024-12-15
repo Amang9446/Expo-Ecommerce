@@ -14,6 +14,7 @@ export default function RootLayout() {
         <QueryClientProvider client={queryClient}>
             <GluestackUIProvider>
                 <Stack screenOptions={{
+                    headerTitleAlign: 'center',
                     headerRight: () => cartItems > 0 && (
                         <Link href={"/cart"} asChild>
                             <Pressable className="flex-row gap-2">
@@ -25,6 +26,7 @@ export default function RootLayout() {
                 }}>
                     <Stack.Screen name="index" options={{
                         title: 'Shop',
+                        headerTitleAlign: 'center',
                         headerLeft: () => !isLoggedIn && (
                             <Link href={"/login"} asChild>
                                 <Pressable className="flex-row gap-2">
