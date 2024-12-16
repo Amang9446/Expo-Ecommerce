@@ -9,7 +9,7 @@ export default function Cart() {
     const cartItems = useCart(state => state.items)
     const emptyCart = useCart(state => state.emptyCart)
     const createOrderMutation = useMutation({
-        mutationFn: () => createOrder(cartItems.map((item) => ({
+        mutationFn: () => createOrder(cartItems.map((item: any) => ({
             productId: item.product.id,
             quantity: item.quantity,
             price: item.product.price
