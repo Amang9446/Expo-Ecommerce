@@ -4,20 +4,23 @@ A modern e-commerce application built with React Native, Expo, and TypeScript. T
 
 ## Screenshots
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
-
-### Login Screen
-<img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372553/kn9ygpefcms3jwgecehp.png" width="250" alt="Login Screen">
-
-### Shop Screen
-<img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372554/vx6nirmnnybglbztaxrd.png" width="250" alt="Shop Screen">
-
-### Product Screen
-<img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372553/zmb09s0pef8bhw1ylxxo.png" width="250" alt="Product Screen">
-
-### Cart Screen
-<img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372554/idudnrpnf84dwgy6btfb.png" width="250" alt="Cart Screen">
-
+<div style="display: flex; flex-direction: row; gap: 10px; overflow-x: auto; padding: 20px;">
+    <div>
+        <h3>Login Screen</h3>
+        <img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372553/kn9ygpefcms3jwgecehp.png" width="200" alt="Login Screen">
+    </div>
+    <div>
+        <h3>Shop Screen</h3>
+        <img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372554/vx6nirmnnybglbztaxrd.png" width="200" alt="Shop Screen">
+    </div>
+    <div>
+        <h3>Product Screen</h3>
+        <img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372553/zmb09s0pef8bhw1ylxxo.png" width="200" alt="Product Screen">
+    </div>
+    <div>
+        <h3>Cart Screen</h3>
+        <img src="https://res.cloudinary.com/drzv3bviq/image/upload/v1734372554/idudnrpnf84dwgy6btfb.png" width="200" alt="Cart Screen">
+    </div>
 </div>
 
 ## Features
@@ -51,7 +54,7 @@ A modern e-commerce application built with React Native, Expo, and TypeScript. T
 
 1. Clone the repository:
 
-```bash
+````bash
 git clone <repository-url>
 cd ecommerce
 
@@ -60,7 +63,7 @@ cd ecommerce
 
 ```bash
 npm install
-```
+````
 
 3. Start the development server:
 
@@ -70,11 +73,13 @@ npm start
 
 ## Project Structure
 
-├── app/ # App screens and navigation
-├── components/ # Reusable UI components
-├── store/ # State management
-├── api/ # API integration
-├── assets/ # Static assets
+```text
+├── app/           # App screens and navigation
+├── components/    # Reusable UI components
+├── store/         # State management
+├── api/           # API integration
+└── assets/        # Static assets
+```
 
 ## Environment Variables
 
@@ -82,7 +87,6 @@ Create a `.env` file in the root directory with the following variables:
 
 env
 EXPO_PUBLIC_API_URL=your_api_url
-
 
 ## Building for Production
 
