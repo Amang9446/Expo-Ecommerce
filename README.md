@@ -50,16 +50,16 @@ A modern e-commerce application built with React Native, Expo, and TypeScript. T
 
 1. Clone the repository:
 
-````bash
-git clone <repository-url>
+```bash
+git clone https://github.com/Amang9446/Expo-Ecommerce.git
 cd ecommerce
-
+```
 
 2. Install dependencies:
 
 ```bash
 npm install
-````
+```
 
 3. Start the development server:
 
