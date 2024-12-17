@@ -1,13 +1,14 @@
 import { useCart } from "@/store/cartStore";
 import { FlatList } from "react-native";
 import { Text, VStack, HStack, Button, ButtonText } from "@/components"
-import { Redirect } from "expo-router";
+import { Redirect, useRouter } from "expo-router";
 import { useMutation } from "@tanstack/react-query";
 import { createOrder } from "@/api/order";
 
 export default function Cart() {
     const cartItems = useCart(state => state.items)
     const emptyCart = useCart(state => state.emptyCart)
+    const router = useRouter();
     const createOrderMutation = useMutation({
         mutationFn: () => createOrder(cartItems.map((item: any) => ({
             productId: item.product.id,
@@ -20,6 +21,7 @@ export default function Cart() {
         },
         onError: (error) => {
             console.log(error)
+            router.push('/login')
         }
     })
     const handleCheckout = async () => {
