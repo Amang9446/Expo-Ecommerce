@@ -1,6 +1,6 @@
 import { useCart } from "@/store/cartStore";
 import { FlatList } from "react-native";
-import { Text, VStack, HStack, Button, ButtonText } from "@/components"
+import { Text, VStack, HStack, Button, ButtonText, Image } from "@/components"
 import { Redirect, useRouter } from "expo-router";
 import { useMutation } from "@tanstack/react-query";
 import { createOrder } from "@/api/order";
@@ -38,16 +38,29 @@ export default function Cart() {
             contentContainerClassName="gap-2 max-w-[960px] w-full mx-auto p-2"
             data={cartItems}
             renderItem={({ item }) => (
-                <HStack className="bg-white p-3">
-                    <VStack space="sm">
-                        <Text bold>
-                            {item.product.name}
-                        </Text>
-                        <Text>
-                            {item.product.price}
-                        </Text>
+                <HStack className="bg-white p-3 flex-1 justify-between items-center">
+                    <VStack className="flex-row items-center gap-4">
+                        <VStack space="sm">
+                            <Image className="w-[45px]" source={item.product.image} alt="productImage" resizeMode="contain" />
+                        </VStack>
+                        <VStack space="sm">
+                            <Text bold size="lg">
+                                {item.product.name}
+                            </Text>
+                            <Text>
+                                {item.product.price}
+                            </Text>
+                        </VStack>
                     </VStack>
-                    <Text className="ml-auto">{item.quantity}</Text>
+                    <VStack className="flex-row gap-2 items-center">
+                        <Button size="sm">
+                            <ButtonText>-</ButtonText>
+                        </Button>
+                        <Text size="xl" className="ml-auto text-center">{item.quantity}</Text>
+                        <Button size="sm">
+                            <ButtonText>+</ButtonText>
+                        </Button>
+                    </VStack>
                 </HStack>
             )}
             ListFooterComponent={
