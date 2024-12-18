@@ -9,11 +9,7 @@ export const useCart = create((set) => ({
             ))
             if (isExistingProduct) {
                 return {
-                    items: state.items.map((item: any) =>
-                        item.product.id === product.id
-                            ? { ...item, quantity: item.quantity + 1 }
-                            : item
-                    ),
+                    items: state.items
                 };
             } else {
                 return {
