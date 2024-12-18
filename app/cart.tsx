@@ -31,10 +31,10 @@ export default function Cart() {
     }
 
     const handleIncreaseQuantity = (item: any) => {
-        increaseQuantity(item)
+        increaseQuantity(item.product)
     }
     const handleDecreaseQuantity = (item: any) => {
-        decreaseQuantity(item)
+        decreaseQuantity(item.product)
     }
 
     if (cartItems.length === 0) {
