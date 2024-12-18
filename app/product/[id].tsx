@@ -31,7 +31,11 @@ export default function details() {
     }
     return (
         <Box className="flex-1">
-            <Stack.Screen options={{ title: `${product.name}` }} />
+            <Stack.Screen options={{
+                title: product.name.length > 20
+                    ? `${product.name.slice(0, 20)}...`
+                    : product.name
+            }} />
             <Card className="p-5 rounded-lg max-w-[960px] w-full">
                 <Image
                     source={product.image}

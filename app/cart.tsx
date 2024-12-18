@@ -40,16 +40,17 @@ export default function Cart() {
             renderItem={({ item }) => (
                 <HStack className="bg-white p-3 flex-1 justify-between items-center">
                     <VStack className="flex-row items-center gap-4">
-                        <VStack space="sm">
-                            <Image className="w-[45px]" source={item.product.image} alt="productImage" resizeMode="contain" />
-                        </VStack>
-                        <VStack space="sm">
+                        <Image
+                            className="w-[45px]"
+                            source={item.product.image}
+                            alt="productImage"
+                            resizeMode="contain"
+                        />
+                        <VStack space="sm" className="max-w-[200px] flex-shrink">
                             <Text bold size="lg">
                                 {item.product.name}
                             </Text>
-                            <Text>
-                                {item.product.price}
-                            </Text>
+                            <Text>{item.product.price}</Text>
                         </VStack>
                     </VStack>
                     <VStack className="flex-row gap-2 items-center">
@@ -62,6 +63,7 @@ export default function Cart() {
                         </Button>
                     </VStack>
                 </HStack>
+
             )}
             ListFooterComponent={
                 <Button onPress={handleCheckout}>
