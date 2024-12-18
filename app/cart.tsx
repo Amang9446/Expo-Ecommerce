@@ -6,8 +6,10 @@ import { useMutation } from "@tanstack/react-query";
 import { createOrder } from "@/api/order";
 
 export default function Cart() {
-    const cartItems = useCart(state => state.items)
-    const emptyCart = useCart(state => state.emptyCart)
+    const cartItems = useCart((state: any) => state.items)
+    const emptyCart = useCart((state: any) => state.emptyCart)
+    const increaseQuantity = useCart((state: any) => state.increaseQuantity)
+    const decreaseQuantity = useCart((state: any) => state.decreaseQuantity)
     const router = useRouter();
     const createOrderMutation = useMutation({
         mutationFn: () => createOrder(cartItems.map((item: any) => ({
@@ -26,6 +28,13 @@ export default function Cart() {
     })
     const handleCheckout = async () => {
         createOrderMutation.mutate()
+    }
+
+    const handleIncreaseQuantity = (item: any) => {
+        increaseQuantity(item)
+    }
+    const handleDecreaseQuantity = (item: any) => {
+        decreaseQuantity(item)
     }
 
     if (cartItems.length === 0) {
@@ -54,11 +63,11 @@ export default function Cart() {
                         </VStack>
                     </VStack>
                     <VStack className="flex-row gap-2 items-center">
-                        <Button size="sm">
+                        <Button size="sm" onPress={() => handleDecreaseQuantity(item)}>
                             <ButtonText>-</ButtonText>
                         </Button>
                         <Text size="xl" className="ml-auto text-center">{item.quantity}</Text>
-                        <Button size="sm">
+                        <Button size="sm" onPress={() => handleIncreaseQuantity(item)}>
                             <ButtonText>+</ButtonText>
                         </Button>
                     </VStack>
