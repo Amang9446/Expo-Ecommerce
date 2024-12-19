@@ -8,8 +8,8 @@ import { Text, Icon, GluestackUIProvider } from "@/components";
 import { useAuth } from "@/store/authStore";
 const queryClient = new QueryClient();
 export default function RootLayout() {
-    const cartItems = useCart(state => state.items.length)
-    const isLoggedIn = useAuth(state => !!state.token)
+    const cartItems = useCart((state: any) => state.items.length)
+    const isLoggedIn = useAuth((state: any) => !!state.token)
     return (
         <QueryClientProvider client={queryClient}>
             <GluestackUIProvider>
