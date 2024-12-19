@@ -8,9 +8,9 @@ export default function loginComponent() {
     const [showPassword, setShowPassword] = React.useState(false);
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const saveUser = useAuth((state :any) => state.setUser);
-    const saveToken = useAuth((state : any) => state.setToken);
-    const isLoggedIn = useAuth((state : any) => !!state.token)
+    const saveUser = useAuth((state: any) => state.setUser);
+    const saveToken = useAuth((state: any) => state.setToken);
+    const isLoggedIn = useAuth((state: any) => !!state.token)
 
     const loginMutation = useMutation({
         mutationFn: () => login(email, password),
@@ -57,7 +57,7 @@ export default function loginComponent() {
 
 
     return (
-        <FormControl isInvalid={signupMutation.error || signupMutation.error} className="p-4 border rounded-lg border-outline-300 bg-white m-2 max-w-[500px] ">
+        <FormControl isInvalid={!!signupMutation.error || !!signupMutation.error} className="p-4 border rounded-lg border-outline-300 bg-white m-2 max-w-[500px] ">
             <Stack.Screen options={{ title: 'Login' }} />
             <VStack space="xl">
                 <Heading className="text-typography-900">Login</Heading>
